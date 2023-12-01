@@ -48,29 +48,17 @@ int main(int argc, char *argv[]){
 
     while(in >> noskipws >> curr){
         line += curr;
-        // cout << line << endl;
         for(int i = 0; i < 20; i++){
             if(line.find(values[i]) != string::npos){
-                //cout << values[i] << endl;
                 nums.push_back(string2values[values[i]]);
-                // if((track % 2) == 0){
-                //     sum += string2values[values[i]] * 10;
-                // }
-                // if((track % 2) == 1){
-                //     sum += string2values[values[i]];
-                // }
-                // last_digit = string2values[values[i]];
-                // track++;
-                line = "";
+                line = curr; //for cases of twone
             }
         }
         if(curr == '\n'){
-            cout << (nums[0] * 10) + nums[nums.size() -1] << endl;
             sum += (nums[0] * 10) + nums[nums.size() -1];
             while (!nums.empty()){
                 nums.pop_back();
             }
-            //cout << sum << endl;
             line = "";
         }
     }
